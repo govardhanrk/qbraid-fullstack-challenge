@@ -1,0 +1,47 @@
+{
+  "name": "qbraid-chat",
+  "displayName": "qBraid Chat",
+  "description": "A VS Code extension to chat with qBraid API",
+  "version": "0.1.0",
+  "publisher": "qbraid",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": ["Other"],
+  "main": "./src/extension.js",
+  "scripts": {
+    "vsce:package": "vsce package --out qbraid-chat-0.1.0.vsix"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "qbraid-chat.start",
+        "title": "qBraid Chat: Start"
+      },
+      {
+        "command": "qbraid-chat.setApiKey",
+        "title": "qBraid Chat: Set API Key"
+      }
+    ],
+    "configuration": {
+      "title": "qBraid Chat",
+      "properties": {
+        "qbraidChat.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for qBraid Chat"
+        },
+        "qbraidChat.defaultModel": {
+          "type": "string",
+          "default": "gpt-4o-mini",
+          "description": "Default model to use for chat"
+        }
+      }
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^2.24.0"
+  }
+}
